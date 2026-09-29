@@ -1,0 +1,10 @@
+[package]
+name = "ariadne"
+version = "0.1.0"
+edition = "2021"
+description = "A small command-line FPGA synthesis and place-and-route runner"
+license = "MIT"
+
+[dependencies]
+serde = { version = "1.0.219", features = ["derive"] }
+toml = "0.8.22"

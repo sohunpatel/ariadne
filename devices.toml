@@ -1,0 +1,7 @@
+[devices.ice40-up5k-sg48]
+family = "ice40"
+device = "up5k"
+package = "sg48"
+speed_grade = "1"
+synthesis_pass = "synth_ice40"
+place_route_args = ["--up5k", "--package", "{package}", "--speed", "{speed_grade}"]

@@ -1,0 +1,13 @@
+[project]
+name = "my-fpga-project"
+top = "top"
+sources = ["src/top.v"]
+device = "ice40-up5k-sg48"
+
+[tools]
+synthesis = "yosys"
+place_route = "nextpnr-ice40"
+
+[outputs]
+synthesized_netlist = "build/synth.json"
+routed_netlist = "build/routed.json"
