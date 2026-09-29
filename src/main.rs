@@ -51,6 +51,7 @@ struct Device {
 }
 
 struct FlowPlan {
+    project_name: String,
     synthesis_tool: String,
     synthesis_script: String,
     script_path: PathBuf,
@@ -255,6 +256,7 @@ fn make_plan(
     ]);
 
     Ok(FlowPlan {
+        project_name: project.project.name.clone(),
         synthesis_tool: project.tools.synthesis.clone(),
         synthesis_script: script,
         script_path,
@@ -268,7 +270,11 @@ fn make_plan(
 }
 
 fn execute_plan(plan: FlowPlan, dry_run: bool) -> Result<(), String> {
-    println!("Project directory: {}", plan.working_directory.display());
+    println!(
+        "Project {}: {}",
+        plan.project_name,
+        plan.working_directory.display()
+    );
     println!(
         "Synthesis: {} -s {}",
         plan.synthesis_tool,
